@@ -1,0 +1,167 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Tilesets/Walls.tres" type="TileSet" id=1]
+[ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=2]
+
+[node name="Game" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="UI" type="PanelContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 496.0
+margin_right = 800.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Box" type="VBoxContainer" parent="UI" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 297.0
+margin_bottom = 593.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Title" type="Label" parent="UI/Box" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 290.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "BRICKIT!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Score" type="HBoxContainer" parent="UI/Box" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 290.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="UI/Box/Score" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 35.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Score"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Value" type="Label" parent="UI/Box/Score" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 39.0
+margin_right = 290.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="Field" type="Node2D" parent="." index="1"]
+
+[node name="Walls" type="TileMap" parent="Field" index="0" groups=[
+"walls",
+]]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 65536, 0, 0, 65566, 0, 0, 131072, 0, 0, 131102, 0, 0, 196608, 0, 0, 196638, 0, 0, 262144, 0, 0, 262174, 0, 0, 327680, 0, 0, 327710, 0, 0, 393216, 0, 0, 393246, 0, 0, 458752, 0, 0, 458782, 0, 0, 524288, 0, 0, 524318, 0, 0, 589824, 0, 0, 589854, 0, 0, 655360, 0, 0, 655390, 0, 0, 720896, 0, 0, 720926, 0, 0, 786432, 0, 0, 786462, 0, 0, 851968, 0, 0, 851998, 0, 0, 917504, 0, 0, 917534, 0, 0, 983040, 0, 0, 983070, 0, 0, 1048576, 0, 0, 1048606, 0, 0, 1114112, 0, 0, 1114142, 0, 0, 1179648, 0, 0, 1179678, 0, 0, 1245184, 0, 0, 1245214, 0, 0, 1310720, 0, 0, 1310750, 0, 0, 1376256, 0, 0, 1376286, 0, 0, 1441792, 0, 0, 1441822, 0, 0, 1507328, 0, 0, 1507358, 0, 0, 1572864, 0, 0, 1572894, 0, 0, 1638400, 0, 0, 1638430, 0, 0, 1703936, 0, 0, 1703966, 0, 0, 1769472, 0, 0, 1769502, 0, 0, 1835008, 0, 0, 1835038, 0, 0, 1900544, 0, 0, 1900574, 0, 0, 1966080, 0, 0, 1966110, 0, 0, 2031616, 0, 0, 2031646, 0, 0, 2097152, 0, 0, 2097182, 0, 0, 2162688, 0, 0, 2162718, 0, 0, 2228224, 0, 0, 2228254, 0, 0, 2293760, 0, 0, 2293790, 0, 0, 2359296, 0, 0, 2359326, 0, 0, 2424832, 0, 0, 2424833, 0, 0, 2424834, 0, 0, 2424835, 0, 0, 2424836, 0, 0, 2424837, 0, 0, 2424838, 0, 0, 2424839, 0, 0, 2424840, 0, 0, 2424841, 0, 0, 2424842, 0, 0, 2424843, 0, 0, 2424844, 0, 0, 2424845, 0, 0, 2424846, 0, 0, 2424847, 0, 0, 2424848, 0, 0, 2424849, 0, 0, 2424850, 0, 0, 2424851, 0, 0, 2424852, 0, 0, 2424853, 0, 0, 2424854, 0, 0, 2424855, 0, 0, 2424856, 0, 0, 2424857, 0, 0, 2424858, 0, 0, 2424859, 0, 0, 2424860, 0, 0, 2424861, 0, 0, 2424862, 0, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Ball" parent="Field" index="1" instance=ExtResource( 2 )]
+
+[node name="Ball2" parent="Field" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 419, 547 )
+
+[node name="Ball3" parent="Field" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 70, 554 )
+
+
