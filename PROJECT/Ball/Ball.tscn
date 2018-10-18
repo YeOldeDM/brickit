@@ -12,10 +12,11 @@ radius = 4.12311
 
 position = Vector2( 240, 400 )
 input_pickable = false
-collision_layer = 1
+collision_layer = 0
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
