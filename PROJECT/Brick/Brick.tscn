@@ -5,9 +5,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 18.0305, 8.03752 )
+extents = Vector2( 16, 8 )
 
-[node name="Brick" type="StaticBody2D"]
+[node name="Brick" type="StaticBody2D" groups=[
+"brick",
+]]
 
 input_pickable = false
 collision_layer = 1
