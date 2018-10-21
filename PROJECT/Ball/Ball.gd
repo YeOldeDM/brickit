@@ -22,8 +22,10 @@ func _physics_process(delta):
 			if col.is_in_group("paddle"): # Deflect when hitting the paddle.
 				var x_diff = col.position.x - position.x
 				velocity.x -= x_diff * PADDLE_DEFLECT
+			# if we hit a brick
 			if col.is_in_group("brick"):
 				col.queue_free()
+				GLOBAL.score += GLOBAL.BRICK_VALUE
 		
 	#while the ball is not moving - aka velocity = 0 - get the position of the paddle
 	while velocity == Vector2(0,0):
