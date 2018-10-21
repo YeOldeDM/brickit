@@ -13,7 +13,7 @@ func _ready():
 
 
 
-func _on_score_change( to ):
+func _on_score_changed( to ):
 	score_label.text = str(to)
 
 

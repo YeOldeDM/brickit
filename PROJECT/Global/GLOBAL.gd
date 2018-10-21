@@ -14,7 +14,8 @@ var high_score = 5000 setget _set_high_score
 
 func _set_score( to ):
 	score = to
-	emit_signal( "score_changed", to )
+	print(score)
+	emit_signal( "score_changed", score )
 	if score > high_score:
 		self.high_score = score
 
