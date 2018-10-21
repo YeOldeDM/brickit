@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Tilesets/brick.tres" type="TileSet" id=1]
-[ext_resource path="res://Game/Bricks.gd" type="Script" id=2]
-[ext_resource path="res://Tilesets/Walls.tres" type="TileSet" id=3]
-[ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Paddle/Paddle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/UI.gd" type="Script" id=1]
+[ext_resource path="res://Tilesets/brick.tres" type="TileSet" id=2]
+[ext_resource path="res://Game/Bricks.gd" type="Script" id=3]
+[ext_resource path="res://Tilesets/Walls.tres" type="TileSet" id=4]
+[ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Paddle/Paddle.tscn" type="PackedScene" id=6]
 
 [node name="Game" type="Control" index="0"]
 
@@ -34,6 +35,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+script = ExtResource( 1 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Box" type="VBoxContainer" parent="UI" index="0"]
@@ -97,7 +99,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 35.0
+margin_right = 41.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -105,7 +107,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Score"
+text = "SCORE"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -116,7 +118,65 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 39.0
+margin_left = 45.0
+margin_right = 290.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="HighScore" type="HBoxContainer" parent="UI/Box" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 290.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="UI/Box/HighScore" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 80.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "HIGH SCORE"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Value" type="Label" parent="UI/Box/HighScore" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 84.0
 margin_right = 290.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -138,7 +198,7 @@ _sections_unfolded = [ "Size Flags" ]
 
 position = Vector2( -8, 0 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -154,7 +214,7 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 327681, 0, 0, 327682, 0, 0, 327693, 0, 0, 327694, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 
 [node name="Walls" type="TileMap" parent="Field" index="1" groups=[
@@ -162,7 +222,7 @@ _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 ]]
 
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -180,13 +240,22 @@ format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 65536, 0, 0, 65566, 0, 0, 131072, 0, 0, 131102, 0, 0, 196608, 0, 0, 196638, 0, 0, 262144, 0, 0, 262174, 0, 0, 327680, 0, 0, 327710, 0, 0, 393216, 0, 0, 393246, 0, 0, 458752, 0, 0, 458782, 0, 0, 524288, 0, 0, 524318, 0, 0, 589824, 0, 0, 589854, 0, 0, 655360, 0, 0, 655390, 0, 0, 720896, 0, 0, 720926, 0, 0, 786432, 0, 0, 786462, 0, 0, 851968, 0, 0, 851998, 0, 0, 917504, 0, 0, 917534, 0, 0, 983040, 0, 0, 983070, 0, 0, 1048576, 0, 0, 1048606, 0, 0, 1114112, 0, 0, 1114142, 0, 0, 1179648, 0, 0, 1179678, 0, 0, 1245184, 0, 0, 1245214, 0, 0, 1310720, 0, 0, 1310750, 0, 0, 1376256, 0, 0, 1376286, 0, 0, 1441792, 0, 0, 1441822, 0, 0, 1507328, 0, 0, 1507358, 0, 0, 1572864, 0, 0, 1572894, 0, 0, 1638400, 0, 0, 1638430, 0, 0, 1703936, 0, 0, 1703966, 0, 0, 1769472, 0, 0, 1769502, 0, 0, 1835008, 0, 0, 1835038, 0, 0, 1900544, 0, 0, 1900574, 0, 0, 1966080, 0, 0, 1966110, 0, 0, 2031616, 0, 0, 2031646, 0, 0, 2097152, 0, 0, 2097182, 0, 0, 2162688, 0, 0, 2162718, 0, 0, 2228224, 0, 0, 2228254, 0, 0, 2293760, 0, 0, 2293790, 0, 0, 2359296, 0, 0, 2359326, 0, 0, 2424832, 0, 0, 2424833, 0, 0, 2424834, 0, 0, 2424835, 0, 0, 2424836, 0, 0, 2424837, 0, 0, 2424838, 0, 0, 2424839, 0, 0, 2424840, 0, 0, 2424841, 0, 0, 2424842, 0, 0, 2424843, 0, 0, 2424844, 0, 0, 2424845, 0, 0, 2424846, 0, 0, 2424847, 0, 0, 2424848, 0, 0, 2424849, 0, 0, 2424850, 0, 0, 2424851, 0, 0, 2424852, 0, 0, 2424853, 0, 0, 2424854, 0, 0, 2424855, 0, 0, 2424856, 0, 0, 2424857, 0, 0, 2424858, 0, 0, 2424859, 0, 0, 2424860, 0, 0, 2424861, 0, 0, 2424862, 0, 0 )
 _sections_unfolded = [ "Cell" ]
 
-[node name="Ball" parent="Field" index="2" instance=ExtResource( 4 )]
+[node name="Ball" parent="Field" index="2" instance=ExtResource( 5 )]
 
 [node name="Paddle" parent="Field" index="3" groups=[
 "paddle",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 6 )]
 
 position = Vector2( 244, 522 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+blend_times = [  ]
 
 [connection signal="get_paddle_pos" from="Field/Ball" to="Field/Paddle" method="_on_Ball_get_paddle_pos"]
 

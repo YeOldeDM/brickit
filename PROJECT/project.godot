@@ -14,6 +14,10 @@ config/name="BrickIt!"
 run/main_scene="res://Title/Title.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GLOBAL="*res://Global/GLOBAL.gd"
+
 [display]
 
 window/size/width=800
