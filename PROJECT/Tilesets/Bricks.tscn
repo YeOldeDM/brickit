@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Gfx/brick.png" type="Texture" id=1]
+
+[node name="Bricks" type="Node" index="0"]
+
+[node name="White" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+
+[node name="Red" type="Sprite" parent="." index="1"]
+
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Green" type="Sprite" parent="." index="2"]
+
+modulate = Color( 0, 1, 0, 1 )
+position = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Blue" type="Sprite" parent="." index="3"]
+
+modulate = Color( 0, 0, 1, 1 )
+position = Vector2( 96, 0 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Cyan" type="Sprite" parent="." index="4"]
+
+modulate = Color( 0, 1, 1, 1 )
+position = Vector2( 128, 0 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Yellow" type="Sprite" parent="." index="5"]
+
+modulate = Color( 1, 1, 0, 1 )
+position = Vector2( 160, 16 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Purple" type="Sprite" parent="." index="6"]
+
+modulate = Color( 1, 0, 1, 1 )
+position = Vector2( 160, 0 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Black" type="Sprite" parent="." index="7"]
+
+modulate = Color( 0.125, 0.125, 0.125, 1 )
+position = Vector2( 160, 0 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+
