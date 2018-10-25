@@ -11,6 +11,8 @@ var velocity = Vector2(180,600) #must begin with some Y velocity!
 
 signal get_paddle_pos()
 
+signal brick_broke()
+
 func _physics_process(delta):
 	var motion = move_and_collide(velocity * delta)
 	if motion:
@@ -25,7 +27,8 @@ func _physics_process(delta):
 			# if we hit a brick
 			if col.is_in_group("brick"):
 				col.queue_free()
-				GLOBAL.score += GLOBAL.BRICK_VALUE
+				emit_signal("brick_broke")
+				
 		
 	#while the ball is not moving - aka velocity = 0 - get the position of the paddle
 	while velocity == Vector2(0,0):
