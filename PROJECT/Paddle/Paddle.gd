@@ -1,13 +1,13 @@
 extends KinematicBody2D
 
 var SPEED = 200
-
 var _y
 
 signal send_paddle_pos()
 
 func _ready():
 	_y = position.y
+	
 
 func _physics_process(delta):
 	var LEFT = Input.is_action_pressed("ui_left")
