@@ -27,6 +27,7 @@ func _physics_process(delta):
 			# if we hit a brick
 			if col.is_in_group("brick"):
 				col.queue_free()
+				yield(col, "tree_exited")
 				emit_signal("brick_broke")
 				
 		

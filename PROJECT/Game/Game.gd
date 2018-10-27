@@ -10,7 +10,8 @@ func _ready():
 	change_level(1)
 
 func is_level_clear():
-	return bricks.get_child_count() == 0
+	print("bricks left:", bricks.get_child_count())
+	return bricks.get_child_count() <= 1 #HACK  this returns one more than it should. child_count of 1 means "no bricks left"
 
 
 func clear_level():
@@ -20,7 +21,9 @@ func clear_level():
 func change_level( to ):
 	clear_level()
 	yield( get_tree().create_timer(1.0), "timeout" ) #wait a second 
-	var map = load("res://Game/Levels/Level %d.tscn" % to )
+	var file = "res://Game/Levels/Level %d.tscn" % to 
+	print(file)
+	var map = load(file)
 	if map:
 		map = map.instance()
 		for cell in map.get_used_cells():
@@ -33,10 +36,12 @@ func change_level( to ):
 		
 		
 		map.queue_free()
-	
+	else:
+		print("no map found at %s" % file)
 
 
 func _on_Ball_brick_broke():
 	GLOBAL.score += GLOBAL.BRICK_VALUE
 	if is_level_clear():
+		print("WINNER")
 		GLOBAL.next_level()
