@@ -12,7 +12,6 @@ func _ready():
 func is_level_clear():
 	return bricks.get_child_count() == 0
 
-
 func clear_level():
 	for node in bricks.get_children():
 		node.queue_free()
