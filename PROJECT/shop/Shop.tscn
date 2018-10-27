@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="shop" type="Node2D"]
+
+[node name="Background" type="Polygon2D" parent="." index="0"]
+
+polygon = PoolVector2Array( 0, 0, 800, 0, 800, 600, 0, 600 )
+uv = PoolVector2Array(  )
+color = Color( 0.2, 0.2, 0.2, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+

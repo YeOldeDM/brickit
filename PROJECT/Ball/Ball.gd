@@ -10,7 +10,6 @@ const PADDLE_DEFLECT = 130
 var velocity = Vector2(180,600) #must begin with some Y velocity!
 
 signal get_paddle_pos()
-
 signal brick_broke()
 
 func _physics_process(delta):
