@@ -9,7 +9,9 @@ signal level_changed(to)
 
 var score = 0 setget _set_score
 var high_score = 0 setget _set_high_score
+var points = 0 
 var current_level = 1
+var upgrades = []
 
 
 func next_level():
@@ -30,15 +32,8 @@ func save_highscore():
 	file.store_var(high_score)
 	file.close()
 
-
-
-
-
 func _ready():
 	load_highscore()
-
-
-
 
 func _set_score( to ):
 	score = to
@@ -53,3 +48,10 @@ func _set_high_score(to):
 	emit_signal("high_score_changed", to)
 	save_highscore()
 
+func set_points():
+	points = score
+	
+func update_upgrades(upgrade):
+	upgrades.append(upgrade)
+	print(upgrades)
+	
