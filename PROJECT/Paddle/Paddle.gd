@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
-var SPEED = 200
+var SPEED = 280
 var _y
+
+var JOY_DEADZONE = 0.1
 
 signal send_paddle_pos()
 
@@ -14,6 +16,9 @@ func _physics_process(delta):
 	var RIGHT = Input.is_action_pressed("ui_right")
 	
 	var input = int(RIGHT)-int(LEFT)
+	var joy_x = Input.get_joy_axis(0,0)
+	if abs(joy_x) > JOY_DEADZONE:
+		input = joy_x
 	
 	move_and_collide( Vector2( input*SPEED,0 )*delta )
 

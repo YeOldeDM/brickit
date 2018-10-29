@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	$Start.grab_focus()
+
 func _on_start_pressed():
 	get_tree().change_scene( "res://Game/Game.tscn" )
 

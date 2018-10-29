@@ -2,10 +2,10 @@ extends KinematicBody2D
 
 # Minimum absolute speed limits
 # Keep the balls moving well
-const XLIMIT = 60
-const YLIMIT = 300
+const XLIMIT = 260
+const YLIMIT = 260
 # How much ball is deflected left/right when hitting the edge of the paddle
-const PADDLE_DEFLECT = 130
+const PADDLE_DEFLECT = 120
 
 var velocity = Vector2(180,600) #must begin with some Y velocity!
 
@@ -21,8 +21,8 @@ func _physics_process(delta):
 		if col: #bounce off of solids
 			velocity = velocity.bounce( motion.normal )
 			if col.is_in_group("paddle"): # Deflect when hitting the paddle.
-				var x_diff = col.position.x - position.x
-				velocity.x -= x_diff * PADDLE_DEFLECT
+				var x_diff =  position.x - col.position.x
+				velocity.x = x_diff * PADDLE_DEFLECT
 			# if we hit a brick
 			if col.is_in_group("brick"):
 				col.queue_free()
@@ -36,7 +36,7 @@ func _physics_process(delta):
 		break
 	
 	#if player pressed space bar while the ball isnt moving then give ball velocity
-	if Input.is_action_just_pressed("space_bar") and velocity == Vector2(0,0):
+	if Input.is_action_just_pressed("launch_ball") and velocity == Vector2(0,0):
 		velocity = -Vector2(180,600)
 
 	# maintain a constant vertical speed
