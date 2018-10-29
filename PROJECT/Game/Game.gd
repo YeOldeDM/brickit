@@ -8,7 +8,7 @@ func _ready():
 	GLOBAL.connect("level_changed", self, "change_level")
 	# boot level 1
 	change_level(1)
-	$UI/Box/Upgrades.set_text("You Have the Following Upgrades: " + str(GLOBAL.upgrades))
+	$UI/Box/Upgrades.set_text("You Have the Following Abilities: " + str(GLOBAL.upgrades))
 
 func is_level_clear():
 	return bricks.get_child_count() <= 1 #HACK  this returns one more than it should. child_count of 1 means "no bricks left"
