@@ -11,12 +11,8 @@ func _ready():
 	GLOBAL.high_score = GLOBAL.high_score
 
 
-
-
 func _on_score_changed( to ):
 	score_label.text = str(to)
-
-
 
 func _on_high_score_changed(to):
 	high_score_label.text = str(to)

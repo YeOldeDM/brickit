@@ -168,6 +168,52 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
+[node name="Upgrade_Acquired_Panel" type="Panel" parent="." index="7"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 275.0
+margin_top = 250.0
+margin_right = 525.0
+margin_bottom = 350.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Hint", "Rect" ]
+
+[node name="Upgrade_Acquired" type="Label" parent="Upgrade_Acquired_Panel" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -57.0
+margin_top = -7.0
+margin_right = 57.0
+margin_bottom = 7.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Upgrade_Acquired_Timer" type="Timer" parent="Upgrade_Acquired_Panel" index="1"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
 [connection signal="pressed" from="Upgrade 1" to="." method="_on_Upgrade_1_pressed"]
 
 [connection signal="pressed" from="Upgrade 2" to="." method="_on_Upgrade_2_pressed"]
@@ -175,5 +221,7 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="pressed" from="Upgrade 3" to="." method="_on_Upgrade_3_pressed"]
 
 [connection signal="pressed" from="BTM" to="." method="_on_BTM_pressed"]
+
+[connection signal="timeout" from="Upgrade_Acquired_Panel/Upgrade_Acquired_Timer" to="." method="_on_Upgrade_Acquired_Timer_timeout"]
 
 

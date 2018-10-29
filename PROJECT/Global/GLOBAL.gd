@@ -37,7 +37,7 @@ func _ready():
 
 func _set_score( to ):
 	score = to
-	print(score)
+	points = score
 	emit_signal( "score_changed", score )
 	if score > high_score:
 		self.high_score = score
@@ -47,11 +47,8 @@ func _set_high_score(to):
 	high_score = to
 	emit_signal("high_score_changed", to)
 	save_highscore()
-
-func set_points():
-	points = score
 	
 func update_upgrades(upgrade):
 	upgrades.append(upgrade)
-	print(upgrades)
+
 	

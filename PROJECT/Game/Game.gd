@@ -8,9 +8,9 @@ func _ready():
 	GLOBAL.connect("level_changed", self, "change_level")
 	# boot level 1
 	change_level(1)
+	$UI/Box/Upgrades.set_text("You Have the Following Upgrades: " + str(GLOBAL.upgrades))
 
 func is_level_clear():
-	print("bricks left:", bricks.get_child_count())
 	return bricks.get_child_count() <= 1 #HACK  this returns one more than it should. child_count of 1 means "no bricks left"
 
 func clear_level():
@@ -42,5 +42,4 @@ func change_level( to ):
 func _on_Ball_brick_broke():
 	GLOBAL.score += GLOBAL.BRICK_VALUE
 	if is_level_clear():
-		print("WINNER")
 		GLOBAL.next_level()
