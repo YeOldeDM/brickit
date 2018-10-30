@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Gfx/brick.png" type="Texture" id=1]
 
-[node name="Bricks" type="Node" index="0"]
+[node name="Bricks" type="Node"]
 
 [node name="White" type="Sprite" parent="." index="0"]
 
