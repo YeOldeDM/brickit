@@ -18,22 +18,25 @@ func next_level():
 	current_level += 1
 	emit_signal("level_changed", current_level)
 
-func load_highscore():
+func load_highscore_and_points():
 	var file = File.new()
 	if !file.file_exists(FILE_PATH):
 		return
 	file.open(FILE_PATH, file.READ)
 	high_score = file.get_var()
+	points = file.get_var()
 	file.close()
 	
-func save_highscore():
+func save_highscore_and_points():
 	var file = File.new()
 	file.open(FILE_PATH, file.WRITE)
 	file.store_var(high_score)
+	file.store_var(points)
 	file.close()
 
+
 func _ready():
-	load_highscore()
+	load_highscore_and_points()
 
 func _set_score( to ):
 	score = to
@@ -41,12 +44,12 @@ func _set_score( to ):
 	emit_signal( "score_changed", score )
 	if score > high_score:
 		self.high_score = score
+	save_highscore_and_points()
 
 
 func _set_high_score(to):
 	high_score = to
 	emit_signal("high_score_changed", to)
-	save_highscore()
 	
 func update_upgrades(upgrade):
 	upgrades.append(upgrade)
