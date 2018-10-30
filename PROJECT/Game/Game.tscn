@@ -1,15 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://Game/UI.gd" type="Script" id=2]
 [ext_resource path="res://Tilesets/Bricks.tres" type="TileSet" id=3]
-[ext_resource path="res://Game/Bricks.gd" type="Script" id=4]
-[ext_resource path="res://Tilesets/Walls.tres" type="TileSet" id=5]
-[ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Paddle/Paddle.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Game/Pause Menu.gd" type="Script" id=8]
+[ext_resource path="res://Tilesets/Walls.tres" type="TileSet" id=4]
+[ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Paddle/Paddle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game/Pause Menu.gd" type="Script" id=7]
 
-[node name="Game" type="Control"]
+[node name="Game" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -221,7 +220,6 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Bricks" type="Node2D" parent="Field" index="0"]
 
-editor/display_folded = true
 position = Vector2( -8, 0 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -247,7 +245,6 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray(  )
-script = ExtResource( 4 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -258,7 +255,7 @@ __meta__ = {
 ]]
 
 mode = 0
-tile_set = ExtResource( 5 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -279,11 +276,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Ball" parent="Field" index="2" instance=ExtResource( 6 )]
+[node name="Ball" parent="Field" index="2" instance=ExtResource( 5 )]
 
 [node name="Paddle" parent="Field" index="3" groups=[
 "paddle",
-] instance=ExtResource( 7 )]
+] instance=ExtResource( 6 )]
 
 position = Vector2( 244, 522 )
 
@@ -302,7 +299,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="Panel" type="Panel" parent="Field/Pause Menu" index="0"]
