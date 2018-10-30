@@ -7,6 +7,8 @@ const YLIMIT = 260
 # How much ball is deflected left/right when hitting the edge of the paddle
 const PADDLE_DEFLECT = 120
 
+var damage = 5
+
 var deflects = [
 	-150,
 	-75,
@@ -43,9 +45,11 @@ func _physics_process(delta):
 				
 			# if we hit a brick
 			if col.is_in_group("brick"):
-				col.queue_free()
-				yield(col, "tree_exited")
-				emit_signal("brick_broke")
+#				col.queue_free()
+#				yield(col, "tree_exited")
+				if col.has_method("take_damage"):
+					col.take_damage(self.damage)
+				emit_signal("brick_broke")  # Emit even when it doesn't break?  Why not..
 				
 		
 	#while the ball is not moving - aka velocity = 0 - get the position of the paddle
