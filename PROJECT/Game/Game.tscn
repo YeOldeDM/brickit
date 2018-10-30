@@ -9,7 +9,7 @@
 [ext_resource path="res://Paddle/Paddle.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/Pause Menu.gd" type="Script" id=8]
 
-[node name="Game" type="Control" index="0"]
+[node name="Game" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -375,18 +375,6 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="brick_broke" from="Field/Ball" to="." method="_on_Ball_brick_broke"]
 
 [connection signal="get_paddle_pos" from="Field/Ball" to="Field/Paddle" method="_on_Ball_get_paddle_pos"]
-
-[connection signal="ll" from="Field/Paddle" to="Field/Ball" method="_on_Paddle_ll"]
-
-[connection signal="lr" from="Field/Paddle" to="Field/Ball" method="_on_Paddle_lr"]
-
-[connection signal="ml" from="Field/Paddle" to="Field/Ball" method="_on_Paddle_ml"]
-
-[connection signal="mr" from="Field/Paddle" to="Field/Ball" method="_on_Paddle_mr"]
-
-[connection signal="rl" from="Field/Paddle" to="Field/Ball" method="_on_Paddle_rl"]
-
-[connection signal="rr" from="Field/Paddle" to="Field/Ball" method="_on_Paddle_rr"]
 
 [connection signal="send_paddle_pos" from="Field/Paddle" to="Field/Ball" method="_on_Paddle_send_paddle_pos"]
 
