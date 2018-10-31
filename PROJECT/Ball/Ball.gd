@@ -28,7 +28,7 @@ signal brick_broke()
 func _physics_process(delta):
 	var motion = move_and_collide(velocity * delta)
 	if motion:
-		if position.y >= 584: #if ball touches floor set its velocity to 0
+		if position.y >= 744: #768-16(the top of the floor)-8(the size of the ball)
 			velocity = Vector2(0,0)
 			$Particles2D.emitting = true
 			$ParticleTimer.start()
