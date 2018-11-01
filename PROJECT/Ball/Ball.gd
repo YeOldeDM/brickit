@@ -2,21 +2,21 @@ extends KinematicBody2D
 
 # Minimum absolute speed limits
 # Keep the balls moving well
-const XLIMIT = 260
+const XLIMIT = 500
 const YLIMIT = 260
-# How much ball is deflected left/right when hitting the edge of the paddle
-const PADDLE_DEFLECT = 120
+
+
 
 var damage = 5
 
 var deflects = [
+	-250,
 	-150,
-	-75,
-	-32,
+	-50,
 	0,
-	32,
-	75,
+	50,
 	150,
+	250,
 ]
 
 
@@ -24,6 +24,11 @@ var velocity = Vector2(180,600) #must begin with some Y velocity!
 
 signal get_paddle_pos()
 signal brick_broke()
+
+
+func _ready():
+	GLOBAL.BALL = self # Subscribe to global BALL ref
+
 
 func _physics_process(delta):
 	var motion = move_and_collide(velocity * delta)
@@ -37,11 +42,11 @@ func _physics_process(delta):
 			velocity = velocity.bounce( motion.normal )
 			if col.is_in_group("paddle"): # Deflect when hitting the paddle.
 				var x_diff =  position.x - col.position.x # Should be -32|32
-				var a = 64/6	#length of a section
+				assert col.has_method("get_width")
+				var a = col.get_width() / 6		#length of a section
 				var deflection_section = round(x_diff/a) #will be -3|3
 				var def_x = deflects[3+deflection_section] #Convert to 0|6
-#				print(def_x)
-				velocity.x = def_x
+				velocity.x += def_x
 				
 			# if we hit a brick
 			if col.is_in_group("brick"):

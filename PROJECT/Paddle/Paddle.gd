@@ -6,7 +6,15 @@ var JOY_DEADZONE = 0.1
 
 signal send_paddle_pos()
 
+onready var poly = $Poly
+
+func get_width():
+	var v = poly.polygon
+	return abs(v[0].x) + abs(v[1].x)
+
+
 func _ready():
+	GLOBAL.PADDLE = self # Subscribe to global PADDLE ref
 	_y = position.y 
 
 func _physics_process(delta):

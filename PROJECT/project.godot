@@ -12,6 +12,8 @@ config_version=3
 
 config/name="BrickIt!"
 run/main_scene="res://Title/Title.tscn"
+run/disable_stderr=true
+run/low_processor_mode=true
 config/icon="res://icon.png"
 
 [autoload]

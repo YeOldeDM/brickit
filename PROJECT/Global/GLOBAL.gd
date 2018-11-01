@@ -14,6 +14,10 @@ var current_level = 1
 var upgrades = []
 
 
+# GLOBAL REFERENCES. Subscribed to by their objects
+var PADDLE
+var BALL
+
 func next_level():
 	current_level += 1
 	emit_signal("level_changed", current_level)
