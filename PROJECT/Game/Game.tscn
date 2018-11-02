@@ -289,7 +289,6 @@ position = Vector2( 358.035, 581.175 )
 ] instance=ExtResource( 6 )]
 
 position = Vector2( 360, 642.982 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Pause Menu" type="Control" parent="Field" index="4"]
 

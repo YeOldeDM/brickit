@@ -5,8 +5,6 @@ extends KinematicBody2D
 const XLIMIT = 500
 const YLIMIT = 260
 
-
-
 var damage = 5
 
 var deflects = [
@@ -29,11 +27,10 @@ signal brick_broke()
 func _ready():
 	GLOBAL.BALL = self # Subscribe to global BALL ref
 
-
 func _physics_process(delta):
 	var motion = move_and_collide(velocity * delta)
 	if motion:
-		if position.y >= 744: #768-16(the top of the floor)-8(the size of the ball)
+		if position.y >= 736: #768-16(the top of the floor)-8(the size of the ball)
 			velocity = Vector2(0,0)
 			$Particles2D.emitting = true
 			$ParticleTimer.start()
@@ -50,10 +47,8 @@ func _physics_process(delta):
 				
 			# if we hit a brick
 			if col.is_in_group("brick"):
-#				col.queue_free()
-#				yield(col, "tree_exited")
-				if col.has_method("take_damage"):
-					col.take_damage(self.damage)
+				if col.has_method("get_hit"):
+					col.get_hit(self.damage)
 				emit_signal("brick_broke")  # Emit even when it doesn't break?  Why not..
 				
 		
@@ -73,7 +68,7 @@ func _physics_process(delta):
 
 func _on_Paddle_send_paddle_pos(paddle_pos):
 	position.x = paddle_pos.x
-	position.y = paddle_pos.y - 8
+	position.y = paddle_pos.y - 16
 
 
 func _on_Particle_Timer_timeout():
