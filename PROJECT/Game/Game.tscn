@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://Game/UI.gd" type="Script" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Paddle/Paddle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/Pause Menu.gd" type="Script" id=7]
+[ext_resource path="res://Bullets/Spear.tscn" type="PackedScene" id=8]
 
-[node name="Game" type="Control"]
+[node name="Game" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -222,6 +223,8 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Field" type="Node2D" parent="." index="1"]
 
+_sections_unfolded = [ "Transform" ]
+
 [node name="Bricks" type="Node2D" parent="Field" index="0"]
 
 position = Vector2( -8, 0 )
@@ -374,6 +377,10 @@ text = "Back To Menu"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
+
+[node name="Spear" parent="Field" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 200, 134 )
 
 [connection signal="brick_broke" from="Field/Ball" to="." method="_on_Ball_brick_broke"]
 

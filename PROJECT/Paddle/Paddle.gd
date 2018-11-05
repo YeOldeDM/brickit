@@ -13,6 +13,10 @@ func get_width():
 	return abs(v[0].x) + abs(v[1].x)
 
 
+func get_hit( from_bullet ):
+	pass
+
+
 func _ready():
 	GLOBAL.PADDLE = self # Subscribe to global PADDLE ref
 	_y = position.y 
