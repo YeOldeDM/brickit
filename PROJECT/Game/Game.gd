@@ -27,11 +27,11 @@ func change_level( to ):
 		map = map.instance()
 		for cell in map.get_used_cells():
 			var brick_name = map.tile_set.tile_get_name( map.get_cellv( cell ) ) 
-			var brick = load("res://Brick/%s.tscn" % brick_name )
-			if brick:
-				brick = brick.instance()
-				bricks.call_deferred("add_child", brick)
-				brick.position = map.map_to_world(cell) - bricks.position
+#			var brick = load("res://Brick/%s.tscn" % brick_name )
+#			if brick:
+#				brick = brick.instance()
+#				bricks.call_deferred("add_child", brick)
+#				brick.position = map.map_to_world(cell) - bricks.position
 		
 		
 		map.queue_free()

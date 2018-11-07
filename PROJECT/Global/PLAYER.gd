@@ -29,9 +29,7 @@ var xp = 0 setget _set_xp
 
 var gold = 0 setget _set_gold
 
-func _ready():
-	for i in range(1,100):
-		printt(i,get_xp_to_level(i))
+
 
 func get_xp_to_level( level ):
 	if level == 1:
