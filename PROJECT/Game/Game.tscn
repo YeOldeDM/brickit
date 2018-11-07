@@ -6,8 +6,8 @@
 [ext_resource path="res://Tilesets/Walls.tres" type="TileSet" id=4]
 [ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Paddle/Paddle.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Game/Pause Menu.gd" type="Script" id=7]
-[ext_resource path="res://Bullets/Spear.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Bullets/Spear.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Game/Pause Menu.gd" type="Script" id=8]
 
 [node name="Game" type="Control" index="0"]
 
@@ -293,11 +293,13 @@ position = Vector2( 358.035, 581.175 )
 
 position = Vector2( 360, 642.982 )
 
-[node name="Pause Menu" type="Control" parent="Field" index="4"]
+[node name="Spear" parent="Field" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 355.452, 50.722 )
+
+[node name="Pause Menu" type="Control" parent="Field" index="5"]
 
 pause_mode = 2
-editor/display_folded = true
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -308,20 +310,21 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="Panel" type="Panel" parent="Field/Pause Menu" index="0"]
 
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 100.0
-margin_top = 50.0
-margin_right = 400.0
-margin_bottom = 550.0
+margin_left = 204.0
+margin_top = 85.0
+margin_right = 504.0
+margin_bottom = 585.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -377,10 +380,6 @@ text = "Back To Menu"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
-
-[node name="Spear" parent="Field" index="5" instance=ExtResource( 8 )]
-
-position = Vector2( 200, 134 )
 
 [connection signal="brick_broke" from="Field/Ball" to="." method="_on_Ball_brick_broke"]
 
