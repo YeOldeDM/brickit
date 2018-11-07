@@ -6,8 +6,8 @@
 [ext_resource path="res://Tilesets/Walls.tres" type="TileSet" id=4]
 [ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Paddle/Paddle.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Game/Pause Menu.gd" type="Script" id=7]
-[ext_resource path="res://Bullets/Spear.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Bullets/Spear.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Game/Pause Menu.gd" type="Script" id=8]
 [ext_resource path="res://Game/PlayerUI.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -21,6 +21,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -234,6 +236,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Bricks" type="Node2D" parent="Field" index="0"]
 
+editor/display_folded = true
 position = Vector2( -8, 0 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -300,7 +303,27 @@ position = Vector2( 358.035, 565.175 )
 
 position = Vector2( 360, 594.982 )
 
-[node name="Pause Menu" type="Control" parent="Field" index="4"]
+[node name="Spear" parent="Field" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 200, 134 )
+
+[node name="KillZone" type="Area2D" parent="Field" index="5"]
+
+editor/display_folded = true
+position = Vector2( 360, 690 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Field/KillZone" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Pause Menu" type="Control" parent="Field" index="6"]
 
 pause_mode = 2
 visible = false
@@ -314,7 +337,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="Panel" type="Panel" parent="Field/Pause Menu" index="0"]
@@ -323,10 +346,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 100.0
-margin_top = 50.0
-margin_right = 400.0
-margin_bottom = 550.0
+margin_left = 205.0
+margin_top = 93.0
+margin_right = 505.0
+margin_bottom = 593.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -383,26 +406,6 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Spear" parent="Field" index="5" instance=ExtResource( 8 )]
-
-position = Vector2( 200, 134 )
-
-[node name="KillZone" type="Area2D" parent="Field" index="6"]
-
-editor/display_folded = true
-position = Vector2( 360, 690 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Field/KillZone" index="0"]
-
-shape = SubResource( 1 )
-
 [node name="PlayerUI" type="Control" parent="." index="2"]
 
 anchor_left = 0.0
@@ -427,7 +430,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 1.0
 margin_left = 148.0
+margin_top = -10.0
 margin_right = 276.0
+margin_bottom = -10.0
 rect_min_size = Vector2( 128, 128 )
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -452,8 +457,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 1.0
-margin_left = 704.0
-margin_right = 832.0
+margin_left = 705.0
+margin_top = -11.0
+margin_right = 833.0
+margin_bottom = -11.0
 rect_min_size = Vector2( 128, 128 )
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -495,7 +502,8 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-percent_visible = false
+percent_visible = true
+_sections_unfolded = [ "Percent" ]
 
 [node name="Level" type="Label" parent="PlayerUI" index="3"]
 
@@ -524,8 +532,8 @@ max_lines_visible = -1
 
 [connection signal="send_paddle_pos" from="Field/Paddle" to="Field/Ball" method="_on_Paddle_send_paddle_pos"]
 
-[connection signal="pressed" from="Field/Pause Menu/Panel/BTM" to="Field/Pause Menu" method="_on_BTM_pressed"]
-
 [connection signal="body_entered" from="Field/KillZone" to="." method="_on_KillZone_body_entered"]
+
+[connection signal="pressed" from="Field/Pause Menu/Panel/BTM" to="Field/Pause Menu" method="_on_BTM_pressed"]
 
 

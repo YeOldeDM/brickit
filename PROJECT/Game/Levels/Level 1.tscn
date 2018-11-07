@@ -3,7 +3,7 @@
 [ext_resource path="res://Tilesets/enemies.tres" type="TileSet" id=1]
 [ext_resource path="res://Game/Bricks.gd" type="Script" id=2]
 
-[node name="Bricks" type="TileMap" index="0"]
+[node name="Bricks" type="TileMap"]
 
 position = Vector2( -8, 0 )
 mode = 0

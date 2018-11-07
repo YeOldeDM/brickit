@@ -44,33 +44,33 @@ func get_xp_to_level( level ):
 		return x
 
 # SETTERS
-func _set_hp(what):
-	hp = what
-	emit_signal("hp_changed",what)
+func _set_hp(to):
+	hp = to
+	emit_signal("hp_changed",to)
 
-func _set_max_hp(what):
-	max_hp = what
-	emit_signal("max_hp_changed",what)
+func _set_max_hp(to):
+	max_hp = to
+	emit_signal("max_hp_changed",to)
 
-func _set_mp(what):
-	mp = what
-	emit_signal("mp_changed",what)
+func _set_mp(to):
+	mp = to
+	emit_signal("mp_changed",to)
 
-func _set_max_mp(what):
-	max_mp = what
-	emit_signal("max_mp_changed",what)
+func _set_max_mp(to):
+	max_mp = to
+	emit_signal("max_mp_changed",to)
 
-func _set_level(what):
-	level = what
-	emit_signal("level_changed",what)
+func _set_level(to):
+	level = to
+	emit_signal("level_changed",to)
 
-func _set_xp(what):
-	xp = what
-	emit_signal("xp_changed",what)
+func _set_xp(to):
+	xp = to
+	emit_signal("xp_changed",to)
 
-func _set_gold(what):
-	gold = what
-	emit_signal("gold_changed",what)
+func _set_gold(to):
+	gold = to
+	emit_signal("gold_changed",to)
 
 # SAVE/LOAD
 
