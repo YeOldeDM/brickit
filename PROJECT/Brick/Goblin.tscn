@@ -1,19 +1,39 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Brick/Brick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Brick/Brick.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Gfx/goblin_brick.png" type="Texture" id=2]
 
-[node name="Brick" index="0" instance=ExtResource( 1 )]
+[sub_resource type="RectangleShape2D" id=1]
 
-[node name="Sprite" parent="." index="0"]
+custom_solver_bias = 0.0
+extents = Vector2( 32, 16 )
 
-position = Vector2( -16.1723, -16.8857 )
+[node name="Brick" type="StaticBody2D" index="0" groups=[
+"brick",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+hp = 10
+xp = 1
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
 texture = ExtResource( 2 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 31.8689, 14.9831 )
+position = Vector2( 47.7522, 32.1542 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 
