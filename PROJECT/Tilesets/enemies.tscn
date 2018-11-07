@@ -10,16 +10,20 @@
 
 position = Vector2( 15.6705, 6.48433 )
 texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -32, -22 )
+_sections_unfolded = [ "Offset" ]
 
 [node name="goblin" type="Sprite" parent="." index="1"]
 
-position = Vector2( 88.6391, 8.64576 )
+position = Vector2( -16, -16 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="troll" type="Sprite" parent="." index="2"]
 
-position = Vector2( 208.726, 32.7578 )
+position = Vector2( 48.2484, 31.7516 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
