@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://Game/UI.gd" type="Script" id=2]
@@ -6,8 +6,19 @@
 [ext_resource path="res://Tilesets/Walls.tres" type="TileSet" id=4]
 [ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Paddle/Paddle.tscn" type="PackedScene" id=6]
+<<<<<<< HEAD
 [ext_resource path="res://Bullets/Spear.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Game/Pause Menu.gd" type="Script" id=8]
+=======
+[ext_resource path="res://Game/Pause Menu.gd" type="Script" id=7]
+[ext_resource path="res://Bullets/Spear.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Game/PlayerUI.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 345, 39 )
+>>>>>>> 96c6d69c18fbd07ae8f2cf9a91716228801faab6
 
 [node name="Game" type="Control" index="0"]
 
@@ -25,6 +36,7 @@ script = ExtResource( 1 )
 
 [node name="UI" type="PanelContainer" parent="." index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -285,13 +297,13 @@ __meta__ = {
 
 [node name="Ball" parent="Field" index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 358.035, 581.175 )
+position = Vector2( 358.035, 565.175 )
 
 [node name="Paddle" parent="Field" index="3" groups=[
 "paddle",
 ] instance=ExtResource( 6 )]
 
-position = Vector2( 360, 642.982 )
+position = Vector2( 360, 594.982 )
 
 [node name="Spear" parent="Field" index="4" instance=ExtResource( 7 )]
 
@@ -381,6 +393,144 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
+<<<<<<< HEAD
+=======
+[node name="Spear" parent="Field" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 200, 134 )
+
+[node name="KillZone" type="Area2D" parent="Field" index="6"]
+
+editor/display_folded = true
+position = Vector2( 360, 690 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Field/KillZone" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="PlayerUI" type="Control" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 635.0
+margin_right = 720.0
+margin_bottom = 768.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 9 )
+
+[node name="HP" type="ProgressBar" parent="PlayerUI" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_left = 148.0
+margin_right = 276.0
+rect_min_size = Vector2( 128, 128 )
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 60.0
+exp_edit = false
+rounded = false
+percent_visible = false
+_sections_unfolded = [ "Percent", "Rect" ]
+
+[node name="MP" type="ProgressBar" parent="PlayerUI" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_left = 704.0
+margin_right = 832.0
+rect_min_size = Vector2( 128, 128 )
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 60.0
+exp_edit = false
+rounded = false
+percent_visible = false
+_sections_unfolded = [ "Percent", "Rect" ]
+
+[node name="XP" type="ProgressBar" parent="PlayerUI" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 150.0
+margin_top = 110.0
+margin_right = 570.0
+margin_bottom = 126.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+percent_visible = false
+
+[node name="Level" type="Label" parent="PlayerUI" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 528.0
+margin_top = 97.0
+margin_right = 568.0
+margin_bottom = 111.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+>>>>>>> 96c6d69c18fbd07ae8f2cf9a91716228801faab6
 [connection signal="brick_broke" from="Field/Ball" to="." method="_on_Ball_brick_broke"]
 
 [connection signal="get_paddle_pos" from="Field/Ball" to="Field/Paddle" method="_on_Ball_get_paddle_pos"]
@@ -388,5 +538,7 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="send_paddle_pos" from="Field/Paddle" to="Field/Ball" method="_on_Paddle_send_paddle_pos"]
 
 [connection signal="pressed" from="Field/Pause Menu/Panel/BTM" to="Field/Pause Menu" method="_on_BTM_pressed"]
+
+[connection signal="body_entered" from="Field/KillZone" to="." method="_on_KillZone_body_entered"]
 
 

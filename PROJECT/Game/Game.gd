@@ -43,3 +43,8 @@ func _on_Ball_brick_broke():
 	GLOBAL.score += GLOBAL.BRICK_VALUE
 	if is_level_clear():
 		GLOBAL.next_level()
+
+
+func _on_KillZone_body_entered(body):
+	if body == GLOBAL.BALL:
+		GLOBAL.BALL.die()

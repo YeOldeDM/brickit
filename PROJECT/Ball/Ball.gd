@@ -20,9 +20,14 @@ var deflects = [
 
 var velocity = Vector2(180,600) #must begin with some Y velocity!
 
+
 signal get_paddle_pos()
 signal brick_broke()
 
+func die():
+	velocity = Vector2(0,0)
+	$Particles2D.emitting = true
+	$ParticleTimer.start()
 
 func _ready():
 	GLOBAL.BALL = self # Subscribe to global BALL ref
@@ -30,10 +35,10 @@ func _ready():
 func _physics_process(delta):
 	var motion = move_and_collide(velocity * delta)
 	if motion:
-		if position.y >= 736: #768-16(the top of the floor)-8(the size of the ball)
-			velocity = Vector2(0,0)
-			$Particles2D.emitting = true
-			$ParticleTimer.start()
+#		if position.y >= 736: #768-16(the top of the floor)-8(the size of the ball)
+#			velocity = Vector2(0,0)
+#			$Particles2D.emitting = true
+#			$ParticleTimer.start()
 		var col = motion.collider
 		if col: #bounce off of solids
 			velocity = velocity.bounce( motion.normal )
