@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="Brick" type="StaticBody2D" index="0" groups=[
+[node name="Brick" type="StaticBody2D" groups=[
 "brick",
 ]]
 
@@ -23,6 +23,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 hp = 10
 xp = 1
+type = "Bat"
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
