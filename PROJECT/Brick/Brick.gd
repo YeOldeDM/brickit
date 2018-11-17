@@ -23,7 +23,7 @@ func get_hit( damage ):
 		kill()
 
 func Goblin():
-	print("im a goblin")
+	print("im goblin")
 	
 func Bat():
 	print("im a bat")
